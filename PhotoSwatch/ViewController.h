@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoViewController.h"
 
-@interface ViewController : UIViewController <UIActionSheetDelegate>
+
+@interface ViewController : UIViewController <UIActionSheetDelegate, PhotoViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *photoChooser;
 - (IBAction)doChooser:(id)sender;
 

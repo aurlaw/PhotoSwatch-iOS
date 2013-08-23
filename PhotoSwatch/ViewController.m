@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PhotoViewController.h"
 
 @interface ViewController ()
 
@@ -24,6 +25,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"PhotoController"])
+	{
+		PhotoViewController *photoViewController = segue.destinationViewController;
+		photoViewController.delegate = self;
+	}
 }
 
 #pragma mark - Action Sheet
@@ -46,5 +56,14 @@
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Save to Camera Roll", @"Tweet it!", @"Cancel", nil];
     [actionSheet showInView:self.view];
+}
+
+#pragma mark - Photo Controller delegate
+-(void)photoViewControllerDidSave:(PhotoViewController *)controller {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)photoViewControllerDidCancel:(PhotoViewController *)controller {
+	[self dismissViewControllerAnimated:YES completion:nil];
+	
 }
 @end
