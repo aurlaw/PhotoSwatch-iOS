@@ -16,9 +16,10 @@
 (PhotoViewController *)controller;
 @end
 
-@interface PhotoViewController : UIViewController
+@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak) id <PhotoViewControllerDelegate> delegate;
+
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;

@@ -25,7 +25,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="doChooser:" destination="2" id="74l-v9-K7W"/>
-                                            <segue destination="TDu-Ry-js7" kind="modal" identifier="PhotoController" modalTransitionStyle="flipHorizontal" id="7gQ-7s-z3b"/>
+                                            <segue destination="TDu-Ry-js7" kind="modal" identifier="PhotoController" modalTransitionStyle="coverVertical" id="7gQ-7s-z3b"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WUw-uU-39X"/>
@@ -66,11 +66,11 @@
                         <viewControllerLayoutGuide type="bottom" id="L4i-Rx-eYl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BJj-lk-QTN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="HrD-WA-Y8F">
-                                <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="save" id="SOE-eg-oZp">
                                         <connections>
@@ -84,25 +84,56 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="djdjdj" translatesAutoresizingMaskIntoConstraints="NO" id="FOB-4c-GWG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-sJ-baZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="326" id="4gp-60-aCM"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Main Title" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-Si-vgn">
+                                <rect key="frame" x="0.0" y="235" width="320" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="QfM-Yu-G0s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Second Title" translatesAutoresizingMaskIntoConstraints="NO" id="4b4-bp-Uir">
+                                <rect key="frame" x="0.0" y="342" width="320" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="Iry-Hv-RNQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FOB-4c-GWG" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="3kT-Ff-Thk"/>
-                            <constraint firstItem="FOB-4c-GWG" firstAttribute="top" secondItem="BJj-lk-QTN" secondAttribute="top" id="54O-QZ-3yS"/>
-                            <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="EZ5-I1-aQQ"/>
-                            <constraint firstItem="FOB-4c-GWG" firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="top" id="ZXn-O2-7Um"/>
-                            <constraint firstItem="FOB-4c-GWG" firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="ftM-fb-rVF"/>
-                            <constraint firstAttribute="trailing" secondItem="FOB-4c-GWG" secondAttribute="trailing" id="nMN-7E-sXs"/>
-                            <constraint firstItem="FOB-4c-GWG" firstAttribute="leading" secondItem="BJj-lk-QTN" secondAttribute="leading" id="wOe-rz-qBd"/>
+                            <constraint firstItem="h7I-sJ-baZ" firstAttribute="top" secondItem="BJj-lk-QTN" secondAttribute="top" id="3rT-3R-EZH"/>
+                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="BJj-lk-QTN" secondAttribute="leading" id="3wy-EJ-CjO"/>
+                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="trailing" secondItem="h7I-sJ-baZ" secondAttribute="trailing" id="5dY-fW-Unf"/>
+                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="h7I-sJ-baZ" secondAttribute="leading" id="D6T-CI-BfO"/>
+                            <constraint firstItem="4b4-bp-Uir" firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="top" id="Kph-uj-6ni"/>
+                            <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="Lds-C2-No6"/>
+                            <constraint firstItem="4b4-bp-Uir" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="SBb-rg-3LV"/>
+                            <constraint firstItem="4b4-bp-Uir" firstAttribute="leading" secondItem="vMW-Si-vgn" secondAttribute="leading" id="aKe-st-fmp"/>
+                            <constraint firstItem="4b4-bp-Uir" firstAttribute="trailing" secondItem="vMW-Si-vgn" secondAttribute="trailing" id="dvZ-ph-pBh"/>
+                            <constraint firstItem="4b4-bp-Uir" firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="hru-HM-oYb"/>
+                            <constraint firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="mja-cI-6mb"/>
+                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="top" secondItem="vMW-Si-vgn" secondAttribute="bottom" constant="73" id="qsm-g0-Fpl"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mainImage" destination="h7I-sJ-baZ" id="zhW-1U-IwE"/>
+                        <outlet property="mainText" destination="vMW-Si-vgn" id="e91-x8-PTU"/>
+                        <outlet property="secondText" destination="4b4-bp-Uir" id="2ib-C7-Mcq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJd-8s-LAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
