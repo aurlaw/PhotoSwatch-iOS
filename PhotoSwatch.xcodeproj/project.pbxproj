@@ -13,6 +13,19 @@
 		6F0ABCC217C6FF89002123B3 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC117C6FF89002123B3 /* UIColor+Expanded.m */; };
 		6F0ABCC417C6FFB6002123B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC317C6FFB6002123B3 /* Images.xcassets */; };
 		6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC617C70078002123B3 /* PhotoViewController.m */; };
+		6FD9D77C17CD7C6600F5F342 /* SwatchProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */; };
+		6FD9D78017CD89F800F5F342 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */; };
+		6FD9D78B17CD909900F5F342 /* mantis_logo_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D78A17CD909900F5F342 /* mantis_logo_v3.png */; };
+		6FD9D79017CD918200F5F342 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D78D17CD918200F5F342 /* SVProgressHUD.bundle */; };
+		6FD9D79117CD918200F5F342 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9D78F17CD918200F5F342 /* SVProgressHUD.m */; };
+		6FD9D79417CD929900F5F342 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79217CD929900F5F342 /* icon.png */; };
+		6FD9D79517CD929900F5F342 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79317CD929900F5F342 /* icon@2x.png */; };
+		6FD9D79817CD92EB00F5F342 /* icon_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79617CD92EB00F5F342 /* icon_60.png */; };
+		6FD9D79917CD92EB00F5F342 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79717CD92EB00F5F342 /* icon_120.png */; };
+		6FD9D79E17CD95EB00F5F342 /* mantis_logo_v3_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79A17CD95EB00F5F342 /* mantis_logo_v3_72.png */; };
+		6FD9D79F17CD95EB00F5F342 /* mantis_logo_v3_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79B17CD95EB00F5F342 /* mantis_logo_v3_76.png */; };
+		6FD9D7A017CD95EB00F5F342 /* mantis_logo_v3_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79C17CD95EB00F5F342 /* mantis_logo_v3_144.png */; };
+		6FD9D7A117CD95EB00F5F342 /* mantis_logo_v3_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79D17CD95EB00F5F342 /* mantis_logo_v3_152.png */; };
 		6FE2FAFB17C18CDB003A7449 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE2FAFA17C18CDB003A7449 /* UIKit.framework */; };
 		6FE2FAFD17C18CDB003A7449 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE2FAFC17C18CDB003A7449 /* Foundation.framework */; };
 		6FE2FAFF17C18CDB003A7449 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE2FAFE17C18CDB003A7449 /* CoreGraphics.framework */; };
@@ -38,6 +51,22 @@
 		6F0ABCC317C6FFB6002123B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6F0ABCC517C70078002123B3 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		6F0ABCC617C70078002123B3 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		6FD9D77A17CD7C6600F5F342 /* SwatchProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwatchProcessor.h; sourceTree = "<group>"; };
+		6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwatchProcessor.m; sourceTree = "<group>"; };
+		6FD9D77E17CD7F4B00F5F342 /* AURCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AURCommonUtils.h; sourceTree = "<group>"; };
+		6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6FD9D78A17CD909900F5F342 /* mantis_logo_v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3.png; sourceTree = "<group>"; };
+		6FD9D78D17CD918200F5F342 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		6FD9D78E17CD918200F5F342 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		6FD9D78F17CD918200F5F342 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		6FD9D79217CD929900F5F342 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		6FD9D79317CD929900F5F342 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		6FD9D79617CD92EB00F5F342 /* icon_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_60.png; sourceTree = "<group>"; };
+		6FD9D79717CD92EB00F5F342 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		6FD9D79A17CD95EB00F5F342 /* mantis_logo_v3_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_72.png; sourceTree = "<group>"; };
+		6FD9D79B17CD95EB00F5F342 /* mantis_logo_v3_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_76.png; sourceTree = "<group>"; };
+		6FD9D79C17CD95EB00F5F342 /* mantis_logo_v3_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_144.png; sourceTree = "<group>"; };
+		6FD9D79D17CD95EB00F5F342 /* mantis_logo_v3_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_152.png; sourceTree = "<group>"; };
 		6FE2FAF717C18CDB003A7449 /* PhotoSwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE2FAFA17C18CDB003A7449 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FE2FAFC17C18CDB003A7449 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD9D78017CD89F800F5F342 /* QuartzCore.framework in Frameworks */,
 				6F0ABCAB17C6FD2E002123B3 /* OpenGLES.framework in Frameworks */,
 				6FE2FAFB17C18CDB003A7449 /* UIKit.framework in Frameworks */,
 				6FE2FAFD17C18CDB003A7449 /* Foundation.framework in Frameworks */,
@@ -99,6 +129,9 @@
 				6F0ABCC117C6FF89002123B3 /* UIColor+Expanded.m */,
 				6FE2FB0917C18CDB003A7449 /* AppDelegate.h */,
 				6FE2FB0A17C18CDB003A7449 /* AppDelegate.m */,
+				6FD9D77A17CD7C6600F5F342 /* SwatchProcessor.h */,
+				6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */,
+				6FD9D77E17CD7F4B00F5F342 /* AURCommonUtils.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -106,6 +139,7 @@
 		6F0ABCB817C6FE11002123B3 /* ThirdPartyLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				6FD9D78C17CD918200F5F342 /* SVProgressHUD */,
 				6F0ABCB917C6FE11002123B3 /* LEColorPicker */,
 			);
 			path = ThirdPartyLibraries;
@@ -120,6 +154,32 @@
 				6F0ABCBD17C6FE11002123B3 /* UIColor+YUVSpace.m */,
 			);
 			path = LEColorPicker;
+			sourceTree = "<group>";
+		};
+		6FD9D78917CD909900F5F342 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				6FD9D79A17CD95EB00F5F342 /* mantis_logo_v3_72.png */,
+				6FD9D79B17CD95EB00F5F342 /* mantis_logo_v3_76.png */,
+				6FD9D79C17CD95EB00F5F342 /* mantis_logo_v3_144.png */,
+				6FD9D79D17CD95EB00F5F342 /* mantis_logo_v3_152.png */,
+				6FD9D79617CD92EB00F5F342 /* icon_60.png */,
+				6FD9D79717CD92EB00F5F342 /* icon_120.png */,
+				6FD9D79217CD929900F5F342 /* icon.png */,
+				6FD9D79317CD929900F5F342 /* icon@2x.png */,
+				6FD9D78A17CD909900F5F342 /* mantis_logo_v3.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		6FD9D78C17CD918200F5F342 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6FD9D78D17CD918200F5F342 /* SVProgressHUD.bundle */,
+				6FD9D78E17CD918200F5F342 /* SVProgressHUD.h */,
+				6FD9D78F17CD918200F5F342 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		6FE2FAEE17C18CDB003A7449 = {
@@ -142,6 +202,7 @@
 		6FE2FAF917C18CDB003A7449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */,
 				6F0ABCAA17C6FD2E002123B3 /* OpenGLES.framework */,
 				6FE2FAFA17C18CDB003A7449 /* UIKit.framework */,
 				6FE2FAFC17C18CDB003A7449 /* Foundation.framework */,
@@ -153,6 +214,7 @@
 		6FE2FB0017C18CDB003A7449 /* PhotoSwatch */ = {
 			isa = PBXGroup;
 			children = (
+				6FD9D78917CD909900F5F342 /* images */,
 				6F0ABCB817C6FE11002123B3 /* ThirdPartyLibraries */,
 				6F0ABCAE17C6FD60002123B3 /* Classes */,
 				6F0ABCAC17C6FD42002123B3 /* Resources */,
@@ -229,12 +291,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE2FB0517C18CDB003A7449 /* InfoPlist.strings in Resources */,
+				6FD9D79017CD918200F5F342 /* SVProgressHUD.bundle in Resources */,
 				6FE2FB0D17C18CDB003A7449 /* Default.png in Resources */,
 				6F0ABCC417C6FFB6002123B3 /* Images.xcassets in Resources */,
+				6FD9D79817CD92EB00F5F342 /* icon_60.png in Resources */,
+				6FD9D7A017CD95EB00F5F342 /* mantis_logo_v3_144.png in Resources */,
 				6FE2FB0F17C18CDB003A7449 /* Default@2x.png in Resources */,
+				6FD9D79E17CD95EB00F5F342 /* mantis_logo_v3_72.png in Resources */,
 				6FE2FB1117C18CDB003A7449 /* Default-568h@2x.png in Resources */,
+				6FD9D79417CD929900F5F342 /* icon.png in Resources */,
 				6FE2FB1417C18CDB003A7449 /* MainStoryboard_iPhone.storyboard in Resources */,
+				6FD9D79F17CD95EB00F5F342 /* mantis_logo_v3_76.png in Resources */,
+				6FD9D7A117CD95EB00F5F342 /* mantis_logo_v3_152.png in Resources */,
+				6FD9D78B17CD909900F5F342 /* mantis_logo_v3.png in Resources */,
+				6FD9D79917CD92EB00F5F342 /* icon_120.png in Resources */,
 				6FE2FB1717C18CDB003A7449 /* MainStoryboard_iPad.storyboard in Resources */,
+				6FD9D79517CD929900F5F342 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +322,9 @@
 				6FE2FB0717C18CDB003A7449 /* main.m in Sources */,
 				6FE2FB0B17C18CDB003A7449 /* AppDelegate.m in Sources */,
 				6F0ABCBF17C6FE11002123B3 /* UIColor+YUVSpace.m in Sources */,
+				6FD9D79117CD918200F5F342 /* SVProgressHUD.m in Sources */,
 				6FE2FB1A17C18CDB003A7449 /* ViewController.m in Sources */,
+				6FD9D77C17CD7C6600F5F342 /* SwatchProcessor.m in Sources */,
 				6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

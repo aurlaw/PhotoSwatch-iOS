@@ -56,6 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="113" y="-179"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="Hko-a8-alO">
@@ -84,33 +85,22 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-sJ-baZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-sJ-baZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="272"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="326" id="4gp-60-aCM"/>
+                                    <constraint firstAttribute="width" constant="320" id="lsl-yf-X82"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Main Title" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-Si-vgn">
-                                <rect key="frame" x="0.0" y="235" width="320" height="108"/>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vAN-QO-22A">
+                                <rect key="frame" x="0.0" y="271" width="320" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="108" id="QfM-Yu-G0s"/>
+                                    <constraint firstAttribute="width" constant="320" id="yK5-y7-Qse"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Second Title" translatesAutoresizingMaskIntoConstraints="NO" id="4b4-bp-Uir">
-                                <rect key="frame" x="0.0" y="342" width="320" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="Iry-Hv-RNQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -118,21 +108,18 @@
                             <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="BJj-lk-QTN" secondAttribute="leading" id="3wy-EJ-CjO"/>
                             <constraint firstItem="HrD-WA-Y8F" firstAttribute="trailing" secondItem="h7I-sJ-baZ" secondAttribute="trailing" id="5dY-fW-Unf"/>
                             <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="h7I-sJ-baZ" secondAttribute="leading" id="D6T-CI-BfO"/>
-                            <constraint firstItem="4b4-bp-Uir" firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="top" id="Kph-uj-6ni"/>
+                            <constraint firstItem="h7I-sJ-baZ" firstAttribute="height" secondItem="vAN-QO-22A" secondAttribute="height" id="HuP-Df-Bfv"/>
                             <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="Lds-C2-No6"/>
-                            <constraint firstItem="4b4-bp-Uir" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="SBb-rg-3LV"/>
-                            <constraint firstItem="4b4-bp-Uir" firstAttribute="leading" secondItem="vMW-Si-vgn" secondAttribute="leading" id="aKe-st-fmp"/>
-                            <constraint firstItem="4b4-bp-Uir" firstAttribute="trailing" secondItem="vMW-Si-vgn" secondAttribute="trailing" id="dvZ-ph-pBh"/>
-                            <constraint firstItem="4b4-bp-Uir" firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="hru-HM-oYb"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="top" id="dNl-41-r4Y"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="faD-OR-NPR"/>
                             <constraint firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="mja-cI-6mb"/>
-                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="top" secondItem="vMW-Si-vgn" secondAttribute="bottom" constant="73" id="qsm-g0-Fpl"/>
+                            <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="y6V-Vt-Oed"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="mainImage" destination="h7I-sJ-baZ" id="zhW-1U-IwE"/>
-                        <outlet property="mainText" destination="vMW-Si-vgn" id="e91-x8-PTU"/>
-                        <outlet property="secondText" destination="4b4-bp-Uir" id="2ib-C7-Mcq"/>
+                        <outlet property="mainWebView" destination="vAN-QO-22A" id="YYA-8Q-Sus"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJd-8s-LAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
