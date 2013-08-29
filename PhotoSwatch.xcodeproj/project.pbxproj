@@ -13,6 +13,8 @@
 		6F0ABCC217C6FF89002123B3 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC117C6FF89002123B3 /* UIColor+Expanded.m */; };
 		6F0ABCC417C6FFB6002123B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC317C6FFB6002123B3 /* Images.xcassets */; };
 		6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC617C70078002123B3 /* PhotoViewController.m */; };
+		6FC6EA8B17CEC45D00E3B8E8 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */; };
+		6FC6EA8F17CED58C00E3B8E8 /* SPUserResizableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC6EA8E17CED58C00E3B8E8 /* SPUserResizableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6FD9D77C17CD7C6600F5F342 /* SwatchProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */; };
 		6FD9D78017CD89F800F5F342 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */; };
 		6FD9D78B17CD909900F5F342 /* mantis_logo_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D78A17CD909900F5F342 /* mantis_logo_v3.png */; };
@@ -51,6 +53,10 @@
 		6F0ABCC317C6FFB6002123B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6F0ABCC517C70078002123B3 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		6F0ABCC617C70078002123B3 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		6FC6EA8917CEC45D00E3B8E8 /* PhotoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditViewController.h; sourceTree = "<group>"; };
+		6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditViewController.m; sourceTree = "<group>"; };
+		6FC6EA8D17CED58C00E3B8E8 /* SPUserResizableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUserResizableView.h; sourceTree = "<group>"; };
+		6FC6EA8E17CED58C00E3B8E8 /* SPUserResizableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUserResizableView.m; sourceTree = "<group>"; };
 		6FD9D77A17CD7C6600F5F342 /* SwatchProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwatchProcessor.h; sourceTree = "<group>"; };
 		6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwatchProcessor.m; sourceTree = "<group>"; };
 		6FD9D77E17CD7F4B00F5F342 /* AURCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AURCommonUtils.h; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 				6FE2FB1917C18CDB003A7449 /* ViewController.m */,
 				6F0ABCC517C70078002123B3 /* PhotoViewController.h */,
 				6F0ABCC617C70078002123B3 /* PhotoViewController.m */,
+				6FC6EA8917CEC45D00E3B8E8 /* PhotoEditViewController.h */,
+				6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -139,6 +147,7 @@
 		6F0ABCB817C6FE11002123B3 /* ThirdPartyLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				6FC6EA8C17CED58C00E3B8E8 /* SPUserResizableView */,
 				6FD9D78C17CD918200F5F342 /* SVProgressHUD */,
 				6F0ABCB917C6FE11002123B3 /* LEColorPicker */,
 			);
@@ -154,6 +163,15 @@
 				6F0ABCBD17C6FE11002123B3 /* UIColor+YUVSpace.m */,
 			);
 			path = LEColorPicker;
+			sourceTree = "<group>";
+		};
+		6FC6EA8C17CED58C00E3B8E8 /* SPUserResizableView */ = {
+			isa = PBXGroup;
+			children = (
+				6FC6EA8D17CED58C00E3B8E8 /* SPUserResizableView.h */,
+				6FC6EA8E17CED58C00E3B8E8 /* SPUserResizableView.m */,
+			);
+			path = SPUserResizableView;
 			sourceTree = "<group>";
 		};
 		6FD9D78917CD909900F5F342 /* images */ = {
@@ -319,11 +337,13 @@
 			files = (
 				6F0ABCC217C6FF89002123B3 /* UIColor+Expanded.m in Sources */,
 				6F0ABCBE17C6FE11002123B3 /* LEColorPicker.m in Sources */,
+				6FC6EA8F17CED58C00E3B8E8 /* SPUserResizableView.m in Sources */,
 				6FE2FB0717C18CDB003A7449 /* main.m in Sources */,
 				6FE2FB0B17C18CDB003A7449 /* AppDelegate.m in Sources */,
 				6F0ABCBF17C6FE11002123B3 /* UIColor+YUVSpace.m in Sources */,
 				6FD9D79117CD918200F5F342 /* SVProgressHUD.m in Sources */,
 				6FE2FB1A17C18CDB003A7449 /* ViewController.m in Sources */,
+				6FC6EA8B17CEC45D00E3B8E8 /* PhotoEditViewController.m in Sources */,
 				6FD9D77C17CD7C6600F5F342 /* SwatchProcessor.m in Sources */,
 				6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */,
 			);

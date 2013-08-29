@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoEditViewController.h"
 @class PhotoViewController;
 
 @protocol PhotoViewControllerDelegate <NSObject>
@@ -16,9 +17,10 @@
 (PhotoViewController *)controller;
 @end
 
-@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, PhotoEditViewControllerDelegate>
 
 @property (nonatomic, weak) id <PhotoViewControllerDelegate> delegate;
+@property (strong, nonatomic) UIImage *selectedImage;
 
 
 - (IBAction)cancel:(id)sender;

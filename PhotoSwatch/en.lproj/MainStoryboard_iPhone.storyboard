@@ -25,7 +25,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="doChooser:" destination="2" id="74l-v9-K7W"/>
-                                            <segue destination="TDu-Ry-js7" kind="modal" identifier="PhotoController" modalTransitionStyle="coverVertical" id="7gQ-7s-z3b"/>
+                                            <segue destination="12T-Jr-wPo" kind="modal" identifier="PhotoController" modalTransitionStyle="coverVertical" id="RCp-mh-RVY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WUw-uU-39X"/>
@@ -56,9 +56,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="-179"/>
+            <point key="canvasLocation" x="-255" y="-183"/>
         </scene>
-        <!--Photo View Controller-->
+        <!--Photo View Controller - Photo Swatch-->
         <scene sceneID="Hko-a8-alO">
             <objects>
                 <viewController id="TDu-Ry-js7" customClass="PhotoViewController" sceneMemberID="viewController">
@@ -67,11 +67,11 @@
                         <viewControllerLayoutGuide type="bottom" id="L4i-Rx-eYl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BJj-lk-QTN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="HrD-WA-Y8F">
-                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="save" id="SOE-eg-oZp">
                                         <connections>
@@ -85,46 +85,107 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-sJ-baZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="272"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-sJ-baZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="326" id="4gp-60-aCM"/>
-                                    <constraint firstAttribute="width" constant="320" id="lsl-yf-X82"/>
+                                    <constraint firstAttribute="height" constant="316" id="CkX-rJ-1CI"/>
                                 </constraints>
                             </imageView>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vAN-QO-22A">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAN-QO-22A">
                                 <rect key="frame" x="0.0" y="271" width="320" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="yK5-y7-Qse"/>
-                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h7I-sJ-baZ" firstAttribute="top" secondItem="BJj-lk-QTN" secondAttribute="top" id="3rT-3R-EZH"/>
                             <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="BJj-lk-QTN" secondAttribute="leading" id="3wy-EJ-CjO"/>
-                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="trailing" secondItem="h7I-sJ-baZ" secondAttribute="trailing" id="5dY-fW-Unf"/>
-                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="h7I-sJ-baZ" secondAttribute="leading" id="D6T-CI-BfO"/>
-                            <constraint firstItem="h7I-sJ-baZ" firstAttribute="height" secondItem="vAN-QO-22A" secondAttribute="height" id="HuP-Df-Bfv"/>
                             <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="Lds-C2-No6"/>
-                            <constraint firstItem="vAN-QO-22A" firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="top" id="dNl-41-r4Y"/>
-                            <constraint firstItem="vAN-QO-22A" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="faD-OR-NPR"/>
+                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="top" secondItem="vAN-QO-22A" secondAttribute="bottom" constant="44" id="PzC-qR-Ted"/>
+                            <constraint firstItem="h7I-sJ-baZ" firstAttribute="top" secondItem="BJj-lk-QTN" secondAttribute="top" id="hIR-kP-6z1"/>
                             <constraint firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="mja-cI-6mb"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="top" secondItem="6SR-st-qAI" secondAttribute="bottom" constant="271" id="qxW-wp-b92"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="t5K-dH-K3K"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="leading" secondItem="h7I-sJ-baZ" secondAttribute="leading" id="trv-eH-HU1"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="trailing" secondItem="h7I-sJ-baZ" secondAttribute="trailing" id="wUH-7s-gLk"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="xmT-EW-pv0"/>
                             <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="y6V-Vt-Oed"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationItem key="navigationItem" title="Photo Swatch" id="xCn-F4-pZa"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mainImage" destination="h7I-sJ-baZ" id="zhW-1U-IwE"/>
                         <outlet property="mainWebView" destination="vAN-QO-22A" id="YYA-8Q-Sus"/>
+                        <segue destination="z9n-Ui-r7w" kind="push" identifier="PhotoEditController" id="vxw-tp-M6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJd-8s-LAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="-168"/>
+            <point key="canvasLocation" x="920" y="-275"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8cw-fe-9GT">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="12T-Jr-wPo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5YI-93-32Z">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TDu-Ry-js7" kind="relationship" relationship="rootViewController" id="EbC-kh-6mW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Vr-5T-1YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="126" y="270"/>
+        </scene>
+        <!--Photo Edit View Controller - Crop Photo-->
+        <scene sceneID="gO0-fI-dkB">
+            <objects>
+                <viewController id="z9n-Ui-r7w" customClass="PhotoEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hes-Kq-bQm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ea4-sX-xLS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wMo-Mz-zVr">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="egV-An-xUd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="egV-An-xUd" secondAttribute="trailing" id="B95-oO-hmS"/>
+                            <constraint firstItem="egV-An-xUd" firstAttribute="top" secondItem="wMo-Mz-zVr" secondAttribute="top" id="JaZ-G0-aRB"/>
+                            <constraint firstAttribute="bottom" secondItem="egV-An-xUd" secondAttribute="bottom" id="LGR-V8-yVx"/>
+                            <constraint firstItem="egV-An-xUd" firstAttribute="leading" secondItem="wMo-Mz-zVr" secondAttribute="leading" id="zI7-aJ-MmE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Crop Photo" id="JpW-az-9C1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dPJ-dY-MaZ">
+                            <connections>
+                                <action selector="cancel:" destination="z9n-Ui-r7w" id="H7n-dq-vf5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="beg-oI-HDW">
+                            <connections>
+                                <action selector="done:" destination="z9n-Ui-r7w" id="nZy-Ru-xts"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="editPhotoView" destination="egV-An-xUd" id="6us-YB-2Sy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BvF-c6-Ukm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488" y="-175"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

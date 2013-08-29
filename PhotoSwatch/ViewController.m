@@ -31,8 +31,14 @@
 {
 	if ([segue.identifier isEqualToString:@"PhotoController"])
 	{
-		PhotoViewController *photoViewController = segue.destinationViewController;
+//		PhotoViewController *photoViewController = segue.destinationViewController;
+//		photoViewController.delegate = self;
+		
+		UINavigationController *navigationController = segue.destinationViewController;
+		PhotoViewController *photoViewController  = [[navigationController viewControllers]
+													 objectAtIndex:0];
 		photoViewController.delegate = self;
+		
 	}
 }
 
