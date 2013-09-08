@@ -70,32 +70,7 @@
 	
 	[self performSegueWithIdentifier:@"PhotoEditController" sender:self];
 	
-		
-		//
-//	[SVProgressHUD showWithStatus:@"Processing Image..." maskType:SVProgressHUDMaskTypeBlack];
-//	
-//	
-//	[self.mainImage setImage:image];
-//	
-//	[self dismissViewControllerAnimated:YES completion:NULL];
-//	
-//		//[[SwatchProcessor sharedManager] processWithImage:image];
-//
-//	NSMutableString *str = [NSMutableString string];
-//	[[SwatchProcessor sharedManager] processWithImage:image withCompletetion:^(NSArray *arrColors) {
-//		AURLog("@Total Colors: %i", [arrColors count]);
-//		[arrColors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//				UIColor *c = obj;
-//				//AURLog(@"%i = Color: %@", idx, [c hexStringValue]);
-//			[str appendString:[NSString stringWithFormat:@"<span style=\"color:#%@\">%@</span><br>", [c hexStringValue], [c hexStringValue]]];
-//		}];
-//		[self.mainWebView loadHTMLString:str baseURL:nil];
-//			// dismiss
-//			//[SVProgressHUD dismiss];
-//		[SVProgressHUD showSuccessWithStatus:@"Completed"];
-//		AURLog(@"Dismiss HUD");
-//	}];
-	
+			
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -148,6 +123,26 @@
 	[self.mainImage setImage:image];
 	
 	[self.navigationController popViewControllerAnimated:YES];
+	
+	
+	[SVProgressHUD showWithStatus:@"Processing Image..." maskType:SVProgressHUDMaskTypeBlack];
+
+
+	NSMutableString *str = [NSMutableString string];
+		[[SwatchProcessor sharedManager] processWithImage:image withCompletetion:^(NSArray *arrColors) {
+				AURLog("@Total Colors: %i", [arrColors count]);
+				[arrColors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+						UIColor *c = obj;
+						//AURLog(@"%i = Color: %@", idx, [c hexStringValue]);
+					[str appendString:[NSString stringWithFormat:@"<span style=\"color:#%@\">%@</span><br>", [c hexStringValue], [c hexStringValue]]];
+				}];
+				[self.mainWebView loadHTMLString:str baseURL:nil];
+					// dismiss
+
+				[SVProgressHUD showSuccessWithStatus:@"Completed"];
+				AURLog(@"Dismiss HUD");
+			}];
+
 	
 }
 

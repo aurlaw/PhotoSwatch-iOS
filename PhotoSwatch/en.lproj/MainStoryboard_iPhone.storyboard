@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4504" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4504" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="M6f-kp-jJQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="epo-wZ-rdw">
-                                <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="x8W-d4-kJL"/>
                                     <barButtonItem systemItem="add" id="AbD-sR-Cu5">
@@ -32,7 +32,7 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="djdjdj" translatesAutoresizingMaskIntoConstraints="NO" id="GuN-L3-7sI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -67,11 +67,11 @@
                         <viewControllerLayoutGuide type="bottom" id="L4i-Rx-eYl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BJj-lk-QTN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="HrD-WA-Y8F">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="save" id="SOE-eg-oZp">
                                         <connections>
@@ -93,7 +93,7 @@
                                 </constraints>
                             </imageView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAN-QO-22A">
-                                <rect key="frame" x="0.0" y="271" width="320" height="145"/>
+                                <rect key="frame" x="0.0" y="379" width="320" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -102,10 +102,10 @@
                         <constraints>
                             <constraint firstItem="HrD-WA-Y8F" firstAttribute="leading" secondItem="BJj-lk-QTN" secondAttribute="leading" id="3wy-EJ-CjO"/>
                             <constraint firstAttribute="bottom" secondItem="HrD-WA-Y8F" secondAttribute="bottom" id="Lds-C2-No6"/>
-                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="top" secondItem="vAN-QO-22A" secondAttribute="bottom" constant="44" id="PzC-qR-Ted"/>
+                            <constraint firstItem="HrD-WA-Y8F" firstAttribute="top" secondItem="vAN-QO-22A" secondAttribute="bottom" id="PzC-qR-Ted"/>
                             <constraint firstItem="h7I-sJ-baZ" firstAttribute="top" secondItem="BJj-lk-QTN" secondAttribute="top" id="hIR-kP-6z1"/>
                             <constraint firstAttribute="trailing" secondItem="HrD-WA-Y8F" secondAttribute="trailing" id="mja-cI-6mb"/>
-                            <constraint firstItem="vAN-QO-22A" firstAttribute="top" secondItem="6SR-st-qAI" secondAttribute="bottom" constant="271" id="qxW-wp-b92"/>
+                            <constraint firstItem="vAN-QO-22A" firstAttribute="top" secondItem="6SR-st-qAI" secondAttribute="bottom" constant="315" id="qxW-wp-b92"/>
                             <constraint firstItem="vAN-QO-22A" firstAttribute="leading" secondItem="HrD-WA-Y8F" secondAttribute="leading" id="t5K-dH-K3K"/>
                             <constraint firstItem="vAN-QO-22A" firstAttribute="leading" secondItem="h7I-sJ-baZ" secondAttribute="leading" id="trv-eH-HU1"/>
                             <constraint firstItem="vAN-QO-22A" firstAttribute="trailing" secondItem="h7I-sJ-baZ" secondAttribute="trailing" id="wUH-7s-gLk"/>
@@ -114,7 +114,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photo Swatch" id="xCn-F4-pZa"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mainImage" destination="h7I-sJ-baZ" id="zhW-1U-IwE"/>
                         <outlet property="mainWebView" destination="vAN-QO-22A" id="YYA-8Q-Sus"/>
@@ -149,11 +148,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ea4-sX-xLS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wMo-Mz-zVr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="egV-An-xUd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -173,12 +172,12 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="beg-oI-HDW">
+                            <color key="tintColor" red="0.1764705882" green="0.49803921569999998" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="done:" destination="z9n-Ui-r7w" id="nZy-Ru-xts"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="editPhotoView" destination="egV-An-xUd" id="6us-YB-2Sy"/>
                     </connections>

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SPUserResizableView.h"
+#import "BFCropInterface.h"
+
 @class PhotoEditViewController;
 
 @protocol PhotoEditViewControllerDelegate <NSObject>
@@ -16,10 +17,13 @@
 @end
 
 
-@interface PhotoEditViewController : UIViewController <SPUserResizableViewDelegate>
+@interface PhotoEditViewController : UIViewController 
 
 @property (nonatomic, weak) id <PhotoEditViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIImageView *editPhotoView;
+@property (nonatomic, strong) BFCropInterface *cropper;
+
+
 @property (strong, nonatomic) UIImage *selectedImage;
 
 - (IBAction)cancel:(id)sender;

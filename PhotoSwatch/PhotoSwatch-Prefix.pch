@@ -12,5 +12,6 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 	#import "UIColor+Expanded.h"
+	#import "UIColor+PhotoSwatch.h"
 	#import "AURCommonUtils.h"
 #endif
