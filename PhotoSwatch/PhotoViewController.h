@@ -17,10 +17,11 @@
 (PhotoViewController *)controller;
 @end
 
-@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, PhotoEditViewControllerDelegate>
+@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, PhotoEditViewControllerDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) id <PhotoViewControllerDelegate> delegate;
 @property (strong, nonatomic) UIImage *selectedImage;
+@property (strong, nonatomic) IBOutlet UICollectionView *swatchCollectionView;
 
 
 - (IBAction)cancel:(id)sender;

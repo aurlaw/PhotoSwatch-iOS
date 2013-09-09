@@ -14,6 +14,9 @@
 		6F0ABCC417C6FFB6002123B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC317C6FFB6002123B3 /* Images.xcassets */; };
 		6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC617C70078002123B3 /* PhotoViewController.m */; };
 		6FC6EA8B17CEC45D00E3B8E8 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */; };
+		6FD92D2417DD48E300341927 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD92D2317DD48E300341927 /* Project.m */; };
+		6FD92D2A17DD542400341927 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FD92D2C17DD542400341927 /* Localizable.strings */; };
+		6FD92D3017DD5ED800341927 /* SwatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD92D2F17DD5ED800341927 /* SwatchCell.m */; };
 		6FD9D77C17CD7C6600F5F342 /* SwatchProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */; };
 		6FD9D78017CD89F800F5F342 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */; };
 		6FD9D78B17CD909900F5F342 /* mantis_logo_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D78A17CD909900F5F342 /* mantis_logo_v3.png */; };
@@ -27,6 +30,13 @@
 		6FD9D79F17CD95EB00F5F342 /* mantis_logo_v3_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79B17CD95EB00F5F342 /* mantis_logo_v3_76.png */; };
 		6FD9D7A017CD95EB00F5F342 /* mantis_logo_v3_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79C17CD95EB00F5F342 /* mantis_logo_v3_144.png */; };
 		6FD9D7A117CD95EB00F5F342 /* mantis_logo_v3_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9D79D17CD95EB00F5F342 /* mantis_logo_v3_152.png */; };
+		6FDD5F7917DD6A2E0095762A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDD5F7717DD6A2E0095762A /* libsqlite3.0.dylib */; };
+		6FDD5F7A17DD6A2E0095762A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDD5F7817DD6A2E0095762A /* libsqlite3.dylib */; };
+		6FDD5F8817DD6A440095762A /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD5F7E17DD6A440095762A /* FMDatabase.m */; };
+		6FDD5F8917DD6A440095762A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD5F8017DD6A440095762A /* FMDatabaseAdditions.m */; };
+		6FDD5F8A17DD6A440095762A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD5F8217DD6A440095762A /* FMDatabasePool.m */; };
+		6FDD5F8B17DD6A440095762A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD5F8417DD6A440095762A /* FMDatabaseQueue.m */; };
+		6FDD5F8C17DD6A440095762A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD5F8617DD6A440095762A /* FMResultSet.m */; };
 		6FE2FAFB17C18CDB003A7449 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE2FAFA17C18CDB003A7449 /* UIKit.framework */; };
 		6FE2FAFD17C18CDB003A7449 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE2FAFC17C18CDB003A7449 /* Foundation.framework */; };
 		6FE2FAFF17C18CDB003A7449 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE2FAFE17C18CDB003A7449 /* CoreGraphics.framework */; };
@@ -58,6 +68,11 @@
 		6F0ABCC617C70078002123B3 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		6FC6EA8917CEC45D00E3B8E8 /* PhotoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditViewController.h; sourceTree = "<group>"; };
 		6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditViewController.m; sourceTree = "<group>"; };
+		6FD92D2217DD48E300341927 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		6FD92D2317DD48E300341927 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		6FD92D2B17DD542400341927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6FD92D2E17DD5ED800341927 /* SwatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwatchCell.h; sourceTree = "<group>"; };
+		6FD92D2F17DD5ED800341927 /* SwatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwatchCell.m; sourceTree = "<group>"; };
 		6FD9D77A17CD7C6600F5F342 /* SwatchProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwatchProcessor.h; sourceTree = "<group>"; };
 		6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwatchProcessor.m; sourceTree = "<group>"; };
 		6FD9D77E17CD7F4B00F5F342 /* AURCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AURCommonUtils.h; sourceTree = "<group>"; };
@@ -74,6 +89,18 @@
 		6FD9D79B17CD95EB00F5F342 /* mantis_logo_v3_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_76.png; sourceTree = "<group>"; };
 		6FD9D79C17CD95EB00F5F342 /* mantis_logo_v3_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_144.png; sourceTree = "<group>"; };
 		6FD9D79D17CD95EB00F5F342 /* mantis_logo_v3_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mantis_logo_v3_152.png; sourceTree = "<group>"; };
+		6FDD5F7717DD6A2E0095762A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		6FDD5F7817DD6A2E0095762A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6FDD5F7D17DD6A440095762A /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		6FDD5F7E17DD6A440095762A /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		6FDD5F7F17DD6A440095762A /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		6FDD5F8017DD6A440095762A /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		6FDD5F8117DD6A440095762A /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		6FDD5F8217DD6A440095762A /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		6FDD5F8317DD6A440095762A /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		6FDD5F8417DD6A440095762A /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		6FDD5F8517DD6A440095762A /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		6FDD5F8617DD6A440095762A /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		6FE2FAF717C18CDB003A7449 /* PhotoSwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE2FAFA17C18CDB003A7449 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FE2FAFC17C18CDB003A7449 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDD5F7917DD6A2E0095762A /* libsqlite3.0.dylib in Frameworks */,
+				6FDD5F7A17DD6A2E0095762A /* libsqlite3.dylib in Frameworks */,
 				6FD9D78017CD89F800F5F342 /* QuartzCore.framework in Frameworks */,
 				6F0ABCAB17C6FD2E002123B3 /* OpenGLES.framework in Frameworks */,
 				6FE2FAFB17C18CDB003A7449 /* UIKit.framework in Frameworks */,
@@ -140,13 +169,15 @@
 		6F0ABCAE17C6FD60002123B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6F0ABCC017C6FF89002123B3 /* UIColor+Expanded.h */,
-				6F0ABCC117C6FF89002123B3 /* UIColor+Expanded.m */,
+				6FD92D2D17DD5EBD00341927 /* Views */,
+				6FD92D2117DD48B600341927 /* Objects */,
 				6FE2FB0917C18CDB003A7449 /* AppDelegate.h */,
 				6FE2FB0A17C18CDB003A7449 /* AppDelegate.m */,
+				6FD9D77E17CD7F4B00F5F342 /* AURCommonUtils.h */,
 				6FD9D77A17CD7C6600F5F342 /* SwatchProcessor.h */,
 				6FD9D77B17CD7C6600F5F342 /* SwatchProcessor.m */,
-				6FD9D77E17CD7F4B00F5F342 /* AURCommonUtils.h */,
+				6F0ABCC017C6FF89002123B3 /* UIColor+Expanded.h */,
+				6F0ABCC117C6FF89002123B3 /* UIColor+Expanded.m */,
 				6FF32BB817DC131800CECC1A /* UIColor+PhotoSwatch.h */,
 				6FF32BB917DC131800CECC1A /* UIColor+PhotoSwatch.m */,
 			);
@@ -156,6 +187,7 @@
 		6F0ABCB817C6FE11002123B3 /* ThirdPartyLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				6FDD5F7B17DD6A440095762A /* fmdb */,
 				6FF32BB017DC0BFB00CECC1A /* BFCropInterface */,
 				6FD9D78C17CD918200F5F342 /* SVProgressHUD */,
 				6F0ABCB917C6FE11002123B3 /* LEColorPicker */,
@@ -172,6 +204,24 @@
 				6F0ABCBD17C6FE11002123B3 /* UIColor+YUVSpace.m */,
 			);
 			path = LEColorPicker;
+			sourceTree = "<group>";
+		};
+		6FD92D2117DD48B600341927 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				6FD92D2217DD48E300341927 /* Project.h */,
+				6FD92D2317DD48E300341927 /* Project.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		6FD92D2D17DD5EBD00341927 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6FD92D2E17DD5ED800341927 /* SwatchCell.h */,
+				6FD92D2F17DD5ED800341927 /* SwatchCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		6FD9D78917CD909900F5F342 /* images */ = {
@@ -200,6 +250,23 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		6FDD5F7B17DD6A440095762A /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				6FDD5F7D17DD6A440095762A /* FMDatabase.h */,
+				6FDD5F7E17DD6A440095762A /* FMDatabase.m */,
+				6FDD5F7F17DD6A440095762A /* FMDatabaseAdditions.h */,
+				6FDD5F8017DD6A440095762A /* FMDatabaseAdditions.m */,
+				6FDD5F8117DD6A440095762A /* FMDatabasePool.h */,
+				6FDD5F8217DD6A440095762A /* FMDatabasePool.m */,
+				6FDD5F8317DD6A440095762A /* FMDatabaseQueue.h */,
+				6FDD5F8417DD6A440095762A /* FMDatabaseQueue.m */,
+				6FDD5F8517DD6A440095762A /* FMResultSet.h */,
+				6FDD5F8617DD6A440095762A /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		6FE2FAEE17C18CDB003A7449 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +287,8 @@
 		6FE2FAF917C18CDB003A7449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FDD5F7717DD6A2E0095762A /* libsqlite3.0.dylib */,
+				6FDD5F7817DD6A2E0095762A /* libsqlite3.dylib */,
 				6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */,
 				6F0ABCAA17C6FD2E002123B3 /* OpenGLES.framework */,
 				6FE2FAFA17C18CDB003A7449 /* UIKit.framework */,
@@ -253,6 +322,7 @@
 				6FE2FB0C17C18CDB003A7449 /* Default.png */,
 				6FE2FB0E17C18CDB003A7449 /* Default@2x.png */,
 				6FE2FB1017C18CDB003A7449 /* Default-568h@2x.png */,
+				6FD92D2C17DD542400341927 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -324,6 +394,7 @@
 				6FE2FB0D17C18CDB003A7449 /* Default.png in Resources */,
 				6F0ABCC417C6FFB6002123B3 /* Images.xcassets in Resources */,
 				6FD9D79817CD92EB00F5F342 /* icon_60.png in Resources */,
+				6FD92D2A17DD542400341927 /* Localizable.strings in Resources */,
 				6FD9D7A017CD95EB00F5F342 /* mantis_logo_v3_144.png in Resources */,
 				6FE2FB0F17C18CDB003A7449 /* Default@2x.png in Resources */,
 				6FD9D79E17CD95EB00F5F342 /* mantis_logo_v3_72.png in Resources */,
@@ -351,21 +422,36 @@
 				6F0ABCC217C6FF89002123B3 /* UIColor+Expanded.m in Sources */,
 				6F0ABCBE17C6FE11002123B3 /* LEColorPicker.m in Sources */,
 				6FE2FB0717C18CDB003A7449 /* main.m in Sources */,
+				6FDD5F8817DD6A440095762A /* FMDatabase.m in Sources */,
 				6FE2FB0B17C18CDB003A7449 /* AppDelegate.m in Sources */,
+				6FDD5F8C17DD6A440095762A /* FMResultSet.m in Sources */,
 				6FF32BBA17DC131800CECC1A /* UIColor+PhotoSwatch.m in Sources */,
 				6F0ABCBF17C6FE11002123B3 /* UIColor+YUVSpace.m in Sources */,
+				6FDD5F8917DD6A440095762A /* FMDatabaseAdditions.m in Sources */,
 				6FD9D79117CD918200F5F342 /* SVProgressHUD.m in Sources */,
+				6FD92D3017DD5ED800341927 /* SwatchCell.m in Sources */,
 				6FE2FB1A17C18CDB003A7449 /* ViewController.m in Sources */,
 				6FC6EA8B17CEC45D00E3B8E8 /* PhotoEditViewController.m in Sources */,
 				6FD9D77C17CD7C6600F5F342 /* SwatchProcessor.m in Sources */,
+				6FD92D2417DD48E300341927 /* Project.m in Sources */,
 				6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */,
 				6FF32BB517DC0BFB00CECC1A /* BFCropInterface.m in Sources */,
+				6FDD5F8A17DD6A440095762A /* FMDatabasePool.m in Sources */,
+				6FDD5F8B17DD6A440095762A /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6FD92D2C17DD542400341927 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD92D2B17DD542400341927 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		6FE2FB0317C18CDB003A7449 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
