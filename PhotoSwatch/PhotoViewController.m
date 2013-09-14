@@ -12,6 +12,7 @@
 #import "SwatchProcessor.h"
 #import "SVProgressHUD.h"
 #import "SwatchCell.h"
+#include "Project.h"
 
 @interface PhotoViewController ()
 
@@ -161,6 +162,8 @@
 	{
 		
 		AURLog(@"Project Name: %@", self.projectName.text);
+		
+			//TODO Save Project to DB
 		
 		[self.delegate photoViewControllerDidSave:self];
 
