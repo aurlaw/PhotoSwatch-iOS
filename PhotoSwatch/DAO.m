@@ -24,7 +24,19 @@
     return self;
 }
 
+-(NSString *)documentsFolder {
+		// check for container folder, create if it does not exist
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
+	return [paths objectAtIndex:0];
 
+}
++ (NSString *)GetUUID
+{
+	CFUUIDRef theUUID = CFUUIDCreate(NULL);
+	CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+	CFRelease(theUUID);
+	return (__bridge NSString *)string;
+}
 #pragma mark -
 #pragma mark Database File Methods
 

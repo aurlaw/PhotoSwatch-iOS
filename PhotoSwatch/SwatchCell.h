@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class AURColor;
+
 @interface SwatchCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIColor *swatchColor;
+@property (nonatomic, strong) AURColor *swatchColor;
 @property (strong, nonatomic) IBOutlet UILabel *swatchTitle;
 
 @end

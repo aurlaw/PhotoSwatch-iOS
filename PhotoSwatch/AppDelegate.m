@@ -16,6 +16,9 @@
 	
 	[[UINavigationBar appearance] setTintColor:[UIColor photoSwatchDarkColor]];
 	
+		// set version in settings
+	NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+	[[NSUserDefaults standardUserDefaults] setObject:appVersionString forKey:@"currentVersionKey"];
 	
     return YES;
 }

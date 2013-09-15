@@ -11,18 +11,18 @@
 
 @interface Project : DAO
 {
+	NSString *imageFileName;
 }
 @property  NSUInteger projectId;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSString *image_name;
-@property (strong, nonatomic) NSMutableArray *swatchesArray;
+@property (strong, nonatomic) NSArray *swatchesArray;
 @property (strong, nonatomic) NSDate *dateCreated;
 @property (strong, nonatomic) NSDate *dateModified;
 
 -(void)saveProject;
 -(void)deleteProject;
--(void)addSwatchs:(NSArray *)arr;
+	//-(void)addSwatches:(NSArray *)arr;
 
 +(NSArray*)getAllProjects;
 

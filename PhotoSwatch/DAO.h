@@ -13,5 +13,8 @@
 	//@property (nonatomic, strong) NSString *dbFile;
 
 +(NSString *) databaseFilePath;
++ (NSString *)GetUUID;
+
+-(NSString *)documentsFolder;
 
 @end

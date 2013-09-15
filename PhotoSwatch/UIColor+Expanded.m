@@ -1131,10 +1131,10 @@ void HSPtoRGB(
     switch (self.colorSpaceModel)
     {
         case kCGColorSpaceModelRGB:
-            result = [NSString stringWithFormat:@"%02X%02X%02X", self.redByte, self.greenByte, self.blueByte];
+            result = [NSString stringWithFormat:@"#%02X%02X%02X", self.redByte, self.greenByte, self.blueByte];
             break;
         case kCGColorSpaceModelMonochrome:
-            result = [NSString stringWithFormat:@"%02X%02X%02X", self.whiteByte, self.whiteByte, self.whiteByte];
+            result = [NSString stringWithFormat:@"#%02X%02X%02X", self.whiteByte, self.whiteByte, self.whiteByte];
             break;
         default:
             result = nil;

@@ -18,17 +18,22 @@
 
 @interface Project (hidden)
 
+-(void)deleteImage;
+-(void)saveImage;
+-(void)loadImage;
+-(void)setImageName:(NSString *)imageName;
 @end
 
 @implementation Project
 
-@synthesize projectId, name, image, dateCreated, dateModified, image_name, swatchesArray;
+@synthesize projectId, name, image, dateCreated, dateModified, swatchesArray;
 
 
 - (id)init {
     if ((self = [super init])) {
 			//self.swatchesArray = [[NSMutableArray alloc] init];
-		self.swatchesArray = [[NSMutableArray alloc] init];
+		self.swatchesArray = [[NSArray alloc] init];
+		imageFileName = [DAO GetUUID];
     }
     return self;
 }
@@ -37,31 +42,31 @@
 	self.image = nil;
 }
 
--(void)addSwatches:(NSArray *)arr {
-	NSArray *arrColors = [[ColorMaster sharedManager] getColorMaster];
-		// lookup arr of UICOlors against color master
-	[arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		UIColor *color = obj;
-		AURColor *ac = nil;
-		BOOL isFound = NO;
-		for (AURColor *a in arrColors) {
-			if([a.hex isEqualToString:[color hexStringValue]]) {
-				ac = a;
-				ac.color = color;
-				isFound = YES;
-				break;
-			}
-		}
-		if(isFound == NO) {
-			ac = [AURColor new];
-			ac.hex = [color hexStringValue];
-			ac.color = color;
-			ac.name = @"";
-		}
-		[self.swatchesArray addObject:ac];
-	}];
-	
-}
+//-(void)addSwatches:(NSArray *)arr {
+////	NSArray *arrColors = [[ColorMaster sharedManager] getColorMaster];
+////		// lookup arr of UICOlors against color master
+////	[arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+////		UIColor *color = obj;
+////		AURColor *ac = nil;
+////		BOOL isFound = NO;
+////		for (AURColor *a in arrColors) {
+////			if([a.hex isEqualToString:[color hexStringValue]]) {
+////				ac = a;
+////				ac.color = color;
+////				isFound = YES;
+////				break;
+////			}
+////		}
+////		if(isFound == NO) {
+////			ac = [AURColor new];
+////			ac.hex = [color hexStringValue];
+////			ac.color = color;
+////			ac.name = @"";
+////		}
+////		[self.swatchesArray addObject:ac];
+////	}];
+//	self.swatchesArray = arr;
+//}
 
 #pragma mark - DB: Save & Delete
 /*
@@ -78,30 +83,40 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 	NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject: self.swatchesArray];
 	FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DAO databaseFilePath]];
 	if(self.projectId == 0) {
-		 NSString *sqlStatement = @"INSERT INTO projects(name, image_name, color_data, date_created, date_modified) VALUES(?, ?, ?, 'now', 'now')";
+		 NSString *sqlStatement = @"INSERT INTO projects(name, image_name, color_data, date_created, date_modified) VALUES(?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 		
 			//
+		
 		[queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-			[db executeUpdate:sqlStatement, self.name, self.image_name, colorData, self.projectId];
+			db.traceExecution = YES;
+			[db executeUpdate:sqlStatement, self.name, imageFileName, colorData, self.projectId];
 			FMResultSet *rs = [db executeQuery:@"SELECT last_insert_rowid() FROM projects"];
 			while ([rs next]) {
 				self.projectId = (NSUInteger)[rs intForColumnIndex:0];
 			}
 		}];
+		AURLog(@"Saved with id: %i", self.projectId);
+
 	} else {
-		NSString *sqlStatement = @"UPDATE projects SET name = ?, image_name = ?, color_data = ?, date_modified = 'now' WHERE id = ?)";
+		NSString *sqlStatement = @"UPDATE projects SET name = ?, image_name = ?, color_data = ?, date_modified = CURRENT_TIMESTAMP WHERE id = ?)";
 		
 		[queue inDatabase:^(FMDatabase *db) {
-			[db executeUpdate:sqlStatement, self.name, self.image_name, colorData, self.projectId];
+			db.traceExecution = YES;
+			[db executeUpdate:sqlStatement, self.name, imageFileName, colorData, self.projectId];
 		}];
+		AURLog(@"Updated with id: %i", self.projectId);
 		
 	}
+	[self saveImage];
+
 }
 
 -(void)deleteProject {
 	AURLog(@"Deleting: %@", self.name);
 	FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DAO databaseFilePath]];
 	[queue inDatabase:^(FMDatabase *db) {
+		db.traceExecution = YES;
+
 		NSString *sqlStatement = @"DELETE FROM projects WHERE id = ?)";
 		
 		[queue inDatabase:^(FMDatabase *db) {
@@ -109,7 +124,7 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 		}];
 
 	}];
-
+	[self deleteImage];
 }
 
 #pragma mark - Static
@@ -125,7 +140,10 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 			Project *p = [Project new];
 			p.projectId = [rs intForColumn:@"id"];
 			p.name = [rs stringForColumn:@"name"];
-			p.image_name = [rs stringForColumn:@"image_name"];
+				//p.image_name = [rs stringForColumn:@"image_name"];
+			[p setImageName:[rs stringForColumn:@"image_name"]];
+			[p loadImage];
+			
 			NSData *colorData = [rs dataForColumn:@"color_data"];
 			p.swatchesArray = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
 			p.dateCreated = [rs dateForColumn:@"date_created"];
@@ -137,5 +155,47 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 	return list;
 }
 
+	//saving an image
+- (void)saveImage {
+	
+    [self deleteImage];
+	
+    NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+	
+    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]]; //add our image to the path
+	
+    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
+	
+    AURLog(@"image saved");
+}
 
+	//removing an image
+- (void)deleteImage {
+	
+    if(imageFileName == nil || [imageFileName isEqualToString:@""])
+    {
+        return;
+    }
+	
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+	
+    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]];
+    AURLog(@"Removing...%@", fullPath);
+    
+    BOOL success = [fileManager fileExistsAtPath:fullPath];
+    if (success) {
+        [fileManager removeItemAtPath:fullPath error:NULL];
+    }
+    AURLog(@"image removed");
+}
+
+-(void)loadImage {
+	
+    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]];
+	self.image = [UIImage imageWithContentsOfFile:fullPath];
+}
+-(void)setImageName:(NSString *)imageName {
+	imageFileName = imageName;
+}
 @end

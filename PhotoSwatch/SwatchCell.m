@@ -8,6 +8,7 @@
 
 #import "SwatchCell.h"
 
+#import "AURColor.h"
 @implementation SwatchCell
 
 
@@ -20,14 +21,14 @@
     return self;
 }
 
--(void) setSwatchColor:(UIColor *)swatchColor {
+-(void) setSwatchColor:(AURColor *)swatchColor {
 	
     if(_swatchColor != swatchColor) {
         _swatchColor = swatchColor;
     }
 	AURLog(@"Set swatch");
-	self.swatchTitle.text = [_swatchColor hexStringValue];
-	self.backgroundColor = _swatchColor;
+	self.swatchTitle.text = _swatchColor.name;
+	self.backgroundColor = _swatchColor.color;
 }
 
 /*

@@ -9,10 +9,13 @@
 #import "SwatchProcessor.h"
 
 #import "LEColorPicker.h"
+#import "AURColor.h"
+#import "ColorMaster.h"
 
 @interface SwatchProcessor(hidden)
 
 	-(NSArray*)createColorsFromSchemeArray:(NSArray*)arrayOfScheme;
+	-(NSArray*)createAURColorsFromColorArray:(NSArray*)arrayOfColor;
 @end
 
 @implementation SwatchProcessor
@@ -117,26 +120,28 @@
 		LEColorPicker *colorPicker = [[LEColorPicker alloc] init];
 		LEColorScheme *colorScheme = [colorPicker colorSchemeFromImage:image];
 		
-		
-		AURLog(@"Primary: %@", [colorScheme.primaryTextColor hexStringValue] );
-		AURLog(@"Background: %@", [colorScheme.backgroundColor hexStringValue] );
-		AURLog(@"Secondary: %@", [colorScheme.secondaryTextColor hexStringValue] );
-		
-		AURLog(@"Using adv rule of thirds");
+//		
+//		AURLog(@"Primary: %@", [colorScheme.primaryTextColor hexStringValue] );
+//		AURLog(@"Background: %@", [colorScheme.backgroundColor hexStringValue] );
+//		AURLog(@"Secondary: %@", [colorScheme.secondaryTextColor hexStringValue] );
+//		
+//		AURLog(@"Using adv rule of thirds");
 		NSMutableArray *schemeArray = [[NSMutableArray alloc] init];
 		
 		[imgArr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 			UIImage *i = obj;
 			LEColorScheme *colorScheme = [colorPicker colorSchemeFromImage:i];
 			[schemeArray addObject:colorScheme];
-			AURLog(@"%i = Primary: %@", idx, [colorScheme.primaryTextColor hexStringValue] );
-			AURLog(@"%i = Background: %@", idx, [colorScheme.backgroundColor hexStringValue] );
-			AURLog(@"%i = Secondary: %@", idx, [colorScheme.secondaryTextColor hexStringValue] );
+//			AURLog(@"%i = Primary: %@", idx, [colorScheme.primaryTextColor hexStringValue] );
+//			AURLog(@"%i = Background: %@", idx, [colorScheme.backgroundColor hexStringValue] );
+//			AURLog(@"%i = Secondary: %@", idx, [colorScheme.secondaryTextColor hexStringValue] );
 		}];
 		
 			// extract, remove dups and return just an array of distinct UIColors
 		NSArray *arr = [self createColorsFromSchemeArray:schemeArray];
-		if(completionBlock != Nil) completionBlock(arr);
+			// create AURcolor array based on color master list
+		NSArray *cmArr = [self createAURColorsFromColorArray:arr];
+		if(completionBlock != Nil) completionBlock(cmArr);
 			//if (completionBlock != nil) completionBlock(loginSuccessful);
 //		[arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 //				UIColor *c = obj;
@@ -146,11 +151,9 @@
 }
 
 -(NSArray*)createColorsFromSchemeArray:(NSArray*)arrayOfScheme {
-	
 	NSMutableArray *newArry = [NSMutableArray array];
 	[arrayOfScheme enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		LEColorScheme *scheme = obj;
-		
 		if(![newArry containsObject:scheme.backgroundColor]) {
 			[newArry addObject:scheme.backgroundColor];
 		}
@@ -165,6 +168,36 @@
 	return newArry;
 	
 }
+-(NSArray*)createAURColorsFromColorArray:(NSArray*)arrayOfColor {
+	NSMutableArray *newArry = [NSMutableArray array];
+	NSArray *arrColors = [[ColorMaster sharedManager] getColorMaster];
+		// lookup arr of UICOlors against color master
+	[arrayOfColor enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		UIColor *color = obj;
+		AURColor *ac = nil;
+		BOOL isFound = NO;
+		AURLog(@"Check: %@", [color hexStringValue]);
+		for (AURColor *a in arrColors) {
+//			AURLog(@"Colormaster: %@", a.hex);
+//			AURLog(@"Processed: %@", [color hexStringValue]);
+			if([a.hex isEqualToString:[color hexStringValue]]) {
+				ac = a;
+				ac.color = color;
+				isFound = YES;
+				break;
+			}
+		}
+		if(isFound == NO) {
+			ac = [AURColor new];
+			ac.hex = [color hexStringValue];
+			ac.color = color;
+			ac.name = ac.hex;
+		}
+		[newArry addObject:ac];
+	}];
+	return newArry;
+}
+
 
 
 @end

@@ -8,11 +8,11 @@
 
 #import "PhotoViewController.h"
 
-	//#import "LEColorPicker.h"
 #import "SwatchProcessor.h"
 #import "SVProgressHUD.h"
 #import "SwatchCell.h"
-#include "Project.h"
+#import "Project.h"
+#import "AURColor.h"
 
 @interface PhotoViewController ()
 
@@ -21,13 +21,14 @@
 @property (strong, nonatomic) IBOutlet UIImageView *projectImage;
 @property (strong, nonatomic) IBOutlet UITextField *projectName;
 
-@property (strong, nonatomic) NSArray *swatchArr;
+	//@property (strong, nonatomic) NSArray *swatchArr;
+@property (strong, nonatomic) UIImage *selectedImage;
 
 @end
 
 @implementation PhotoViewController
 
-@synthesize delegate, selectedImage, swatchArr;
+@synthesize delegate, selectedImage, project;
 
 - (void)viewDidLoad
 {
@@ -35,7 +36,9 @@
 	// Do any additional setup after loading the view.
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background_texture"]];
 
-	self.swatchArr = [[NSMutableArray alloc] init];
+	if(!self.project) {
+		self.project = [Project new];
+	}
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -67,9 +70,6 @@
 	
     self.selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
 	
-		// show HUD
-		//+ (void)showWithStatus:(NSString*)string maskType:(SVProgressHUDMaskType)maskType;
-	
 	[self dismissViewControllerAnimated:YES completion:NULL];
 	
 	[self performSegueWithIdentifier:@"PhotoEditController" sender:self];
@@ -98,8 +98,8 @@
 #pragma mark - UICollectionView Datasource
 	// 1
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-	AURLog(@"Total Count: %i", [self.swatchArr count]);
-	return [self.swatchArr count];
+	AURLog(@"Total Count: %i", [self.project.swatchesArray count]);
+	return [self.project.swatchesArray count];
 }
 	// 2
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -108,17 +108,18 @@
 	// 3
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
-	if(self.swatchArr.count > 0 && indexPath.row == 0) {
-		[SVProgressHUD showSuccessWithStatus:@"Completed"];
+	if(self.project.swatchesArray.count > 0 && indexPath.row == 0) {
+			//[SVProgressHUD showSuccessWithStatus:@"Completed"];
+		[SVProgressHUD dismiss];
 		AURLog(@"Dismiss HUD");
 		
 	}
 	AURLog(@"Create cell for index %i", indexPath.row);
 	SwatchCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"SwatchCell" forIndexPath:indexPath];
 	
-	UIColor *swatch = self.swatchArr[indexPath.row];
+	AURColor *swatch = self.project.swatchesArray[indexPath.row];
 	cell.swatchColor = swatch;
-	AURLog(@"Set cell with %@", [swatch hexStringValue]);
+	AURLog(@"Set cell with %@", swatch.hex);
 
     return cell;
 }
@@ -135,18 +136,23 @@
 #pragma mark – UICollectionViewDelegateFlowLayout
 
 	// 1
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    NSString *searchTerm = self.searches[indexPath.section]; FlickrPhoto *photo =
 //    self.searchResults[searchTerm][indexPath.row];
 //		// 2
 //    CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
 //    retval.height += 35; retval.width += 35; return retval;
-//}
+	CGRect screenRect = [[UIScreen mainScreen] bounds];
+	CGFloat w = (screenRect.size.width / 3) - 20;
+	return CGSizeMake(w, 100);
+}
 
 	// 3
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(50, 20, 50, 20);
+		//    return UIEdgeInsetsMake(50, 20, 50, 20);
+
+    return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 
 
@@ -162,9 +168,9 @@
 	{
 		
 		AURLog(@"Project Name: %@", self.projectName.text);
-		
+		self.project.name = self.projectName.text;
 			//TODO Save Project to DB
-		
+		[self.project saveProject];
 		[self.delegate photoViewControllerDidSave:self];
 
 	}
@@ -194,6 +200,7 @@
 }
 -(void)photoEditViewControllerDidSave:(PhotoEditViewController *)controller withImage:(UIImage *)image {
 	
+	self.project.image = image;
 	[self.projectImage setImage:image];
 	
 	[self.navigationController popViewControllerAnimated:YES];
@@ -202,24 +209,11 @@
 	[SVProgressHUD showWithStatus:@"Processing Image..." maskType:SVProgressHUDMaskTypeBlack];
 
 
-		//NSMutableString *str = [NSMutableString string];
 		[[SwatchProcessor sharedManager] processWithImage:image withCompletetion:^(NSArray *arrColors) {
-				AURLog(@"Total Colors: %i", [arrColors count]);
-			self.swatchArr = arrColors;
+			AURLog(@"Total Colors: %i", [arrColors count]);
+			self.project.swatchesArray = arrColors;
 			[self.swatchCollectionView reloadData];
-				// dismisses on swatch collection cellAtIndex
-			
-//				[arrColors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//						UIColor *c = obj;
-//						//AURLog(@"%i = Color: %@", idx, [c hexStringValue]);
-//					[str appendString:[NSString stringWithFormat:@"<span style=\"color:#%@\">%@</span><br>", [c hexStringValue], [c hexStringValue]]];
-//				}];
-//				[self.mainWebView loadHTMLString:str baseURL:nil];
-//					// dismiss
-
-			}];
-
-	
+		}];
 }
 
 @end

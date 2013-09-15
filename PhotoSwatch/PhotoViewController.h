@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PhotoEditViewController.h"
 @class PhotoViewController;
+@class Project;
 
 @protocol PhotoViewControllerDelegate <NSObject>
 - (void)photoViewControllerDidCancel:
@@ -20,8 +21,8 @@
 @interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, PhotoEditViewControllerDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) id <PhotoViewControllerDelegate> delegate;
-@property (strong, nonatomic) UIImage *selectedImage;
 @property (strong, nonatomic) IBOutlet UICollectionView *swatchCollectionView;
+@property (strong, nonatomic) Project *project;
 
 
 - (IBAction)cancel:(id)sender;

@@ -15,6 +15,8 @@
 		6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC617C70078002123B3 /* PhotoViewController.m */; };
 		6F25E48817DEACAB008DCC12 /* database in Resources */ = {isa = PBXBuildFile; fileRef = 6F25E48717DEACAB008DCC12 /* database */; };
 		6FC6EA8B17CEC45D00E3B8E8 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */; };
+		6FC8765B17E53740007976EF /* UIImage+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8765A17E53740007976EF /* UIImage+NSCoding.m */; };
+		6FC8765D17E54C91007976EF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FC8765C17E54C91007976EF /* Settings.bundle */; };
 		6FD92D2417DD48E300341927 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD92D2317DD48E300341927 /* Project.m */; };
 		6FD92D2A17DD542400341927 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FD92D2C17DD542400341927 /* Localizable.strings */; };
 		6FD92D3017DD5ED800341927 /* SwatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD92D2F17DD5ED800341927 /* SwatchCell.m */; };
@@ -64,6 +66,9 @@
 		6F25E48717DEACAB008DCC12 /* database */ = {isa = PBXFileReference; lastKnownFileType = folder; path = database; sourceTree = "<group>"; };
 		6FC6EA8917CEC45D00E3B8E8 /* PhotoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditViewController.h; sourceTree = "<group>"; };
 		6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditViewController.m; sourceTree = "<group>"; };
+		6FC8765917E53740007976EF /* UIImage+NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NSCoding.h"; sourceTree = "<group>"; };
+		6FC8765A17E53740007976EF /* UIImage+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NSCoding.m"; sourceTree = "<group>"; };
+		6FC8765C17E54C91007976EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6FD92D2217DD48E300341927 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		6FD92D2317DD48E300341927 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		6FD92D2B17DD542400341927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -162,6 +167,8 @@
 		6F0ABCAE17C6FD60002123B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6FC8765917E53740007976EF /* UIImage+NSCoding.h */,
+				6FC8765A17E53740007976EF /* UIImage+NSCoding.m */,
 				6FD92D2D17DD5EBD00341927 /* Views */,
 				6FD92D2117DD48B600341927 /* Objects */,
 				6FE2FB0917C18CDB003A7449 /* AppDelegate.h */,
@@ -306,6 +313,7 @@
 				6FE2FB0E17C18CDB003A7449 /* Default@2x.png */,
 				6FE2FB1017C18CDB003A7449 /* Default-568h@2x.png */,
 				6FD92D2C17DD542400341927 /* Localizable.strings */,
+				6FC8765C17E54C91007976EF /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -379,6 +387,7 @@
 			files = (
 				6FE2FB0517C18CDB003A7449 /* InfoPlist.strings in Resources */,
 				6F25E48817DEACAB008DCC12 /* database in Resources */,
+				6FC8765D17E54C91007976EF /* Settings.bundle in Resources */,
 				6FD9D79017CD918200F5F342 /* SVProgressHUD.bundle in Resources */,
 				6FE2FB0D17C18CDB003A7449 /* Default.png in Resources */,
 				6F0ABCC417C6FFB6002123B3 /* Images.xcassets in Resources */,
@@ -418,6 +427,7 @@
 				6FEF5F8C17E3F98C002DF056 /* AURColor.m in Sources */,
 				6FD92D2417DD48E300341927 /* Project.m in Sources */,
 				6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */,
+				6FC8765B17E53740007976EF /* UIImage+NSCoding.m in Sources */,
 				6FF32BB517DC0BFB00CECC1A /* BFCropInterface.m in Sources */,
 				6FDD5F8A17DD6A440095762A /* FMDatabasePool.m in Sources */,
 				6FDD5F8B17DD6A440095762A /* FMDatabaseQueue.m in Sources */,

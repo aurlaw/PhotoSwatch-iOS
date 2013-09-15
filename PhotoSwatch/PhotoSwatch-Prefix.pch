@@ -13,5 +13,6 @@
 	#import <Foundation/Foundation.h>
 	#import "UIColor+Expanded.h"
 	#import "UIColor+PhotoSwatch.h"
+	#import "UIImage+NSCoding.h"
 	#import "AURCommonUtils.h"
 #endif
