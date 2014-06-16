@@ -5,6 +5,8 @@
 //  Created by Michael Lawrence on 9/8/13.
 //  Copyright (c) 2013 Michael Lawrence. All rights reserved.
 //
+//#import "ALAssetsLibrary+CustomPhotoAlbum.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 #import "Project.h"
 
@@ -19,7 +21,7 @@
 @interface Project (hidden)
 
 -(void)deleteImage;
--(void)saveImage;
+-(void)saveImageWithCompletionBlock:(SaveImageCompletion)completionBlock;;
 -(void)loadImage;
 -(void)setImageName:(NSString *)imageName;
 @end
@@ -33,7 +35,7 @@
     if ((self = [super init])) {
 			//self.swatchesArray = [[NSMutableArray alloc] init];
 		self.swatchesArray = [[NSArray alloc] init];
-		imageFileName = [DAO GetUUID];
+			//imageFileName = [DAO GetUUID];
     }
     return self;
 }
@@ -73,41 +75,42 @@
 CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "name" TEXT NOT NULL , "image_name" TEXT NOT NULL , "color_data" BLOB NOT NULL, "date_created" DATETIME NOT NULL,  "date_modified" DATETIME NOT NULL ) */
 -(void)saveProject {
 	AURLog(@"Saving: %@", self.name);
-	
-		// extract UIColor and convert to NSData for storing in SQLite as serialized data
-//	NSMutableArray *colorArr = [[NSMutableArray alloc] initWithCapacity:self.swatchesArray.count];
-//	[self.swatchesArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//		AURColor *ac = obj;
-//		[colorArr addObject:ac.color];
-//	}];
-	NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject: self.swatchesArray];
-	FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DAO databaseFilePath]];
-	if(self.projectId == 0) {
-		 NSString *sqlStatement = @"INSERT INTO projects(name, image_name, color_data, date_created, date_modified) VALUES(?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
-		
-			//
-		
-		[queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-			db.traceExecution = YES;
-			[db executeUpdate:sqlStatement, self.name, imageFileName, colorData, self.projectId];
-			FMResultSet *rs = [db executeQuery:@"SELECT last_insert_rowid() FROM projects"];
-			while ([rs next]) {
-				self.projectId = (NSUInteger)[rs intForColumnIndex:0];
+	[self saveImageWithCompletionBlock:^(NSURL *assetURL, NSError *error) {
+		if(error != nil) {
+			AURLog(@"Big error: %@", [error description]);
+		} else {
+			
+			NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject: self.swatchesArray];
+			FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DAO databaseFilePath]];
+			if(self.projectId == 0) {
+				NSString *sqlStatement = @"INSERT INTO projects(name, image_name, color_data, date_created, date_modified) VALUES(?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+				
+					//
+				
+				[queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+					db.traceExecution = YES;
+					[db executeUpdate:sqlStatement, self.name, imageFileName, colorData, self.projectId];
+					FMResultSet *rs = [db executeQuery:@"SELECT last_insert_rowid() FROM projects"];
+					while ([rs next]) {
+						self.projectId = (NSUInteger)[rs intForColumnIndex:0];
+					}
+				}];
+				AURLog(@"Saved with id: %i", self.projectId);
+				
+			} else {
+				NSString *sqlStatement = @"UPDATE projects SET name = ?, image_name = ?, color_data = ?, date_modified = CURRENT_TIMESTAMP WHERE id = ?)";
+				
+				[queue inDatabase:^(FMDatabase *db) {
+					db.traceExecution = YES;
+					[db executeUpdate:sqlStatement, self.name, imageFileName, colorData, self.projectId];
+				}];
+				AURLog(@"Updated with id: %i", self.projectId);
+				
 			}
-		}];
-		AURLog(@"Saved with id: %i", self.projectId);
-
-	} else {
-		NSString *sqlStatement = @"UPDATE projects SET name = ?, image_name = ?, color_data = ?, date_modified = CURRENT_TIMESTAMP WHERE id = ?)";
+			
+		}
 		
-		[queue inDatabase:^(FMDatabase *db) {
-			db.traceExecution = YES;
-			[db executeUpdate:sqlStatement, self.name, imageFileName, colorData, self.projectId];
-		}];
-		AURLog(@"Updated with id: %i", self.projectId);
-		
-	}
-	[self saveImage];
+	}];
 
 }
 
@@ -141,7 +144,7 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 			p.projectId = [rs intForColumn:@"id"];
 			p.name = [rs stringForColumn:@"name"];
 				//p.image_name = [rs stringForColumn:@"image_name"];
-			[p setImageName:[rs stringForColumn:@"image_name"]];
+				//[p setImageName:[rs stringForColumn:@"image_name"]];
 			[p loadImage];
 			
 			NSData *colorData = [rs dataForColumn:@"color_data"];
@@ -156,16 +159,42 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 }
 
 	//saving an image
-- (void)saveImage {
+- (void)saveImageWithCompletionBlock:(SaveImageCompletion)completionBlock {
 	
     [self deleteImage];
 	
-    NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+//	ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//	[library writeImageToSavedPhotosAlbum:image.CGImage orientation:(ALAssetOrientation)image.imageOrientation
+//					   completionBlock:^(NSURL* assetURL, NSError* error) {
+//						   
+//							   //error handling
+//						   if (error!=nil) {
+//							   completionBlock(assetURL, error);
+//							   return;
+//						   }
+//						   imageFileName = assetURL;
+//						   completionBlock(assetURL, nil);
+//					   }];
 	
-    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]]; //add our image to the path
+//	[library saveImage:image toAlbum:@"PhotoSwatch" withCompletionBlock:^(NSURL *assetUrl) {
+//		imageFileName = assetUrl;
+//	} withErrorCompletion:^(NSError *error) {
+//		AURLog(@"Big error: %@", [error description]);
+//	}];
 	
-    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
+//	[library saveImage:image toAlbum:@"PhotoSwatch" withCompletionBlock:^(NSError *error) {
+//		if (error!=nil) {
+//			AURLog(@"Big error: %@", [error description]);
+//		}
+//	}];
+//
+//	
+//    NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//	
+//    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]]; //add our image to the path
+//	
+//    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
 	
     AURLog(@"image saved");
 }
@@ -173,21 +202,22 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 	//removing an image
 - (void)deleteImage {
 	
-    if(imageFileName == nil || [imageFileName isEqualToString:@""])
-    {
-        return;
-    }
+//    if(imageFileName == nil || [imageFileName isEqualToString:@""])
+//    {
+//        return;
+//    }
 	
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-	
-    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]];
-    AURLog(@"Removing...%@", fullPath);
-    
-    BOOL success = [fileManager fileExistsAtPath:fullPath];
-    if (success) {
-        [fileManager removeItemAtPath:fullPath error:NULL];
-    }
-    AURLog(@"image removed");
+//	
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//	
+//    NSString *fullPath = [[self documentsFolder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]];
+//    AURLog(@"Removing...%@", fullPath);
+//    
+//    BOOL success = [fileManager fileExistsAtPath:fullPath];
+//    if (success) {
+//        [fileManager removeItemAtPath:fullPath error:NULL];
+//    }
+//    AURLog(@"image removed");
 }
 
 -(void)loadImage {
@@ -196,6 +226,6 @@ CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQ
 	self.image = [UIImage imageWithContentsOfFile:fullPath];
 }
 -(void)setImageName:(NSString *)imageName {
-	imageFileName = imageName;
+		//imageFileName = imageName;
 }
 @end

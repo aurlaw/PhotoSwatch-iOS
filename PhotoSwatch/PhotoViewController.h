@@ -18,7 +18,7 @@
 (PhotoViewController *)controller;
 @end
 
-@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, PhotoEditViewControllerDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface PhotoViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, PhotoEditViewControllerDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIActionSheetDelegate>
 
 @property (nonatomic, weak) id <PhotoViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UICollectionView *swatchCollectionView;
@@ -27,5 +27,9 @@
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
+
+-(void)prepareChooser;
+
+-(void)launchImageChooser:(BOOL)withCameraRoll;
 
 @end

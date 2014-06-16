@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "DAO.h"
 
+typedef void(^SaveImageCompletion)(NSURL* assetURL, NSError* error);
 @interface Project : DAO
 {
-	NSString *imageFileName;
+	NSURL *imageFileName;
 }
+
 @property  NSUInteger projectId;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) UIImage *image;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F04A00C194E95B100049ED1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F04A00B194E95B100049ED1 /* AssetsLibrary.framework */; };
+		6F04A00F194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F04A00E194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		6F0ABCAB17C6FD2E002123B3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0ABCAA17C6FD2E002123B3 /* OpenGLES.framework */; };
 		6F0ABCBE17C6FE11002123B3 /* LEColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCBB17C6FE11002123B3 /* LEColorPicker.m */; };
 		6F0ABCBF17C6FE11002123B3 /* UIColor+YUVSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCBD17C6FE11002123B3 /* UIColor+YUVSpace.m */; };
@@ -15,7 +17,6 @@
 		6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0ABCC617C70078002123B3 /* PhotoViewController.m */; };
 		6F25E48817DEACAB008DCC12 /* database in Resources */ = {isa = PBXBuildFile; fileRef = 6F25E48717DEACAB008DCC12 /* database */; };
 		6FC6EA8B17CEC45D00E3B8E8 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */; };
-		6FC8765B17E53740007976EF /* UIImage+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8765A17E53740007976EF /* UIImage+NSCoding.m */; };
 		6FC8765D17E54C91007976EF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FC8765C17E54C91007976EF /* Settings.bundle */; };
 		6FD92D2417DD48E300341927 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD92D2317DD48E300341927 /* Project.m */; };
 		6FD92D2A17DD542400341927 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FD92D2C17DD542400341927 /* Localizable.strings */; };
@@ -53,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F04A00B194E95B100049ED1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6F04A00D194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		6F04A00E194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		6F0ABCAA17C6FD2E002123B3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6F0ABCBA17C6FE11002123B3 /* LEColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEColorPicker.h; sourceTree = "<group>"; };
 		6F0ABCBB17C6FE11002123B3 /* LEColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEColorPicker.m; sourceTree = "<group>"; };
@@ -66,8 +70,6 @@
 		6F25E48717DEACAB008DCC12 /* database */ = {isa = PBXFileReference; lastKnownFileType = folder; path = database; sourceTree = "<group>"; };
 		6FC6EA8917CEC45D00E3B8E8 /* PhotoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditViewController.h; sourceTree = "<group>"; };
 		6FC6EA8A17CEC45D00E3B8E8 /* PhotoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditViewController.m; sourceTree = "<group>"; };
-		6FC8765917E53740007976EF /* UIImage+NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NSCoding.h"; sourceTree = "<group>"; };
-		6FC8765A17E53740007976EF /* UIImage+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NSCoding.m"; sourceTree = "<group>"; };
 		6FC8765C17E54C91007976EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6FD92D2217DD48E300341927 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		6FD92D2317DD48E300341927 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
@@ -129,12 +131,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F04A00C194E95B100049ED1 /* AssetsLibrary.framework in Frameworks */,
+				6FE2FAFD17C18CDB003A7449 /* Foundation.framework in Frameworks */,
+				6FE2FAFB17C18CDB003A7449 /* UIKit.framework in Frameworks */,
 				6FDD5F7917DD6A2E0095762A /* libsqlite3.0.dylib in Frameworks */,
 				6FDD5F7A17DD6A2E0095762A /* libsqlite3.dylib in Frameworks */,
 				6FD9D78017CD89F800F5F342 /* QuartzCore.framework in Frameworks */,
 				6F0ABCAB17C6FD2E002123B3 /* OpenGLES.framework in Frameworks */,
-				6FE2FAFB17C18CDB003A7449 /* UIKit.framework in Frameworks */,
-				6FE2FAFD17C18CDB003A7449 /* Foundation.framework in Frameworks */,
 				6FE2FAFF17C18CDB003A7449 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +170,8 @@
 		6F0ABCAE17C6FD60002123B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6FC8765917E53740007976EF /* UIImage+NSCoding.h */,
-				6FC8765A17E53740007976EF /* UIImage+NSCoding.m */,
+				6F04A00D194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				6F04A00E194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				6FD92D2D17DD5EBD00341927 /* Views */,
 				6FD92D2117DD48B600341927 /* Objects */,
 				6FE2FB0917C18CDB003A7449 /* AppDelegate.h */,
@@ -277,6 +280,7 @@
 		6FE2FAF917C18CDB003A7449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F04A00B194E95B100049ED1 /* AssetsLibrary.framework */,
 				6FDD5F7717DD6A2E0095762A /* libsqlite3.0.dylib */,
 				6FDD5F7817DD6A2E0095762A /* libsqlite3.dylib */,
 				6FD9D77F17CD89F800F5F342 /* QuartzCore.framework */,
@@ -419,6 +423,7 @@
 				6FF32BBA17DC131800CECC1A /* UIColor+PhotoSwatch.m in Sources */,
 				6F0ABCBF17C6FE11002123B3 /* UIColor+YUVSpace.m in Sources */,
 				6FDD5F8917DD6A440095762A /* FMDatabaseAdditions.m in Sources */,
+				6F04A00F194E95CC00049ED1 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				6FD9D79117CD918200F5F342 /* SVProgressHUD.m in Sources */,
 				6FD92D3017DD5ED800341927 /* SwatchCell.m in Sources */,
 				6FE2FB1A17C18CDB003A7449 /* ViewController.m in Sources */,
@@ -427,7 +432,6 @@
 				6FEF5F8C17E3F98C002DF056 /* AURColor.m in Sources */,
 				6FD92D2417DD48E300341927 /* Project.m in Sources */,
 				6F0ABCC717C70078002123B3 /* PhotoViewController.m in Sources */,
-				6FC8765B17E53740007976EF /* UIImage+NSCoding.m in Sources */,
 				6FF32BB517DC0BFB00CECC1A /* BFCropInterface.m in Sources */,
 				6FDD5F8A17DD6A440095762A /* FMDatabasePool.m in Sources */,
 				6FDD5F8B17DD6A440095762A /* FMDatabaseQueue.m in Sources */,

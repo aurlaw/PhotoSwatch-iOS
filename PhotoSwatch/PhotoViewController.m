@@ -44,16 +44,20 @@
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 	
+//	if(self.hasLaunched == NO) {
+//		UIImagePickerController *mgPickerController = [[UIImagePickerController alloc] init];
+//		mgPickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+//		mgPickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//		mgPickerController.delegate = self;
+//		
+//		self.imagePickerController = mgPickerController;
+//		
+//			self.hasLaunched = YES;
+//			[self presentViewController:self.imagePickerController animated:YES completion:nil];
+//	}
 	if(self.hasLaunched == NO) {
-		UIImagePickerController *mgPickerController = [[UIImagePickerController alloc] init];
-		mgPickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-		mgPickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-		mgPickerController.delegate = self;
-		
-		self.imagePickerController = mgPickerController;
-		
-			self.hasLaunched = YES;
-			[self presentViewController:self.imagePickerController animated:YES completion:nil];
+		[self prepareChooser];
+		self.hasLaunched = YES;
 	}
 }
 
@@ -61,6 +65,60 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Action Sheet
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	
+	NSLog(@"Button index: %i", buttonIndex);
+	switch (buttonIndex) {
+		case 0:
+			[self launchImageChooser:NO];
+			break;
+		case 1:
+			[self launchImageChooser:YES];
+			break;
+		default:
+			AURLog(@"Cancel");
+			[self.delegate photoViewControllerDidCancel:self];
+
+			break;
+	}
+}
+
+-(void)prepareChooser {
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
+															 delegate:self
+													cancelButtonTitle:nil
+											   destructiveButtonTitle:nil
+													otherButtonTitles:@"Take Picture", @"Open from Camera Roll", @"Cancel", nil];
+	[actionSheet showInView:self.view];
+}
+
+
+#pragma mark - Image Chooser
+-(void)launchImageChooser:(BOOL)withCameraRoll {
+	UIImagePickerController *mgPickerController = [[UIImagePickerController alloc] init];
+	mgPickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+	if(withCameraRoll == YES) {
+		AURLog(@"Open Camera Roll");
+		mgPickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	else {
+		AURLog(@"Launch Camera");
+		mgPickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+		mgPickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+		
+	}
+	mgPickerController.delegate = self;
+	
+	self.imagePickerController = mgPickerController;
+	
+	[self presentViewController:self.imagePickerController animated:YES completion:nil];
+	
+	
 }
 
 #pragma mark - UIImagePicker delegates
