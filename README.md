@@ -1,6 +1,6 @@
 # PhotoSwatch#
 
-This is an iOS application for extracting colors from photos
+This is an iOS application for extracting colors from photos. It was originally started in late 2013.
 
 
 ### How do I get set up? ###
