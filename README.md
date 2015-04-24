@@ -1,5 +1,7 @@
 # PhotoSwatch#
 
+[![Build Status](https://travis-ci.org/aurlaw/PhotoSwatch-iOS.svg?branch=master)](https://travis-ci.org/aurlaw/PhotoSwatch-iOS)
+
 This is an iOS application for extracting colors from photos. It was originally started in late 2013.
 
 
